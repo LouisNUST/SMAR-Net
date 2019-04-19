@@ -6,7 +6,7 @@ This repository contains the source code for paper "Self-supervised Multi-scale 
 
 Deep learning approaches have significantly contributed to recent progress in stereo matching. These deep stereo matching methods are usually based on supervised training, which requires a large amount of high- quality ground truth depth map annotation data. However, collecting large amounts of ground truth depth data can be very expensive. Further, only a limited quantity of stereo vision training data is currently available, obtained either by active sensors (Lidar, ToF cameras) or through computer graphics simulations and not meeting requirements for deep supervised training. Here, we propose a novel deep stereo approach called ``Self-supervised Multi-scale Adversarial Regression Network (SMAR-Net)", which relaxes the need for ground truth depth maps for training. Specifically, we design a two-stage network: the first stage is a disparity regressor, in which the regression network estimates disparity values from stacked stereo image pairs; stereo image stacking method is a novel contribution as it not only contains the spatial appearances of stereo images but also implies matching correspondences with different disparity values. In the second stage, a synthetic left image is generated based on the left-right consistency assumption. Our network is trained by minimizing a hybrid loss function composed of a content-loss and an adversarial-loss. The content loss minimizes the average warping error between the synthetic images and the real ones. In contrast to the conventional generative adversarial loss, our proposed adversarial loss penalizes mismatches using multi-scale features. This constrains the synthetic image and real image as being pixel-wise identical instead of just belonging to the same distribution. Further, the combined utilization of multi-scale feature extraction in both the content loss and adversarial loss further improves the adaptability of SMAR-Net in ill-posed regions. Experiments on multiple benchmark datasets show that SMAR-Net outperforms the current state-of-the-art self-supervised methods and achieves comparable outcomes to supervised methods.
 
-![Architecture]()
+![Architecture](https://github.com/Dawnstar8411/SMAR-Net/blob/master/Images/SMAR-Net.png)
 
 ### Dependencies
 
@@ -31,4 +31,8 @@ Deep learning approaches have significantly contributed to recent progress in st
 
 ### Visualized results on KITTI VO dataset
 
+![KITTI VO](https://github.com/Dawnstar8411/SMAR-Net/blob/master/Images/KITTI_VO.gif)
+
 ### Visualized results on Beihang Dataset
+
+![Beihang](https://github.com/Dawnstar8411/SMAR-Net/blob/master/Images/Beihang.gif)
