@@ -14,6 +14,7 @@ Deep learning approaches have significantly contributed to recent progress in st
 - [PyTorch (1.0.1)](http://pytorch.org)
 - [torchvision (0.2.0)](http://pytorch.org)
 - [KITTI Stereo](http://www.cvlibs.net/datasets/kitti/eval_object.php)
+- [KITTI VO](http://www.cvlibs.net/datasets/kitti/eval_odometry.php)
 - [Scene Flow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
 
 ### Results on KITTI2015 leaderboard
@@ -33,8 +34,11 @@ We compared SMAR-Net with three self-supervised stereo matching methods. We used
 
 ### Visualized results on KITTI VO dataset
 
+We tested SMAR-Net using KITTI VO dataset. 
+
 ![KITTI VO](https://github.com/Dawnstar8411/SMAR-Net/blob/master/Images/KITTI_VO.gif)
 
 ### Visualized results on Beihang Dataset
 
+We also collected almost 10000 pairs of stereo images in Beihang University to train and test SMAR-Net. Here is the visualized results.
 ![Beihang](https://github.com/Dawnstar8411/SMAR-Net/blob/master/Images/Beihang.gif)
