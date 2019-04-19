@@ -21,12 +21,14 @@ Deep learning approaches have significantly contributed to recent progress in st
 [leaderboard website](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 ### Compared with self-supervised methods
-| Method | >2px | >3px| >5px |Mean error|
-|---|---|---|---|---}
-| PSMNet | 4.85 % | 3.56 % | 2.43 |0.74 px
-| [Zhou et al](http://openaccess.thecvf.com/content_ICCV_2017/papers/Zhou_Unsupervised_Learning_of_ICCV_2017_paper.pdf) | 4.01 % | 2.73 % | 2.05% | 0.67px
-| [Tonioni et al](http://openaccess.thecvf.com/content_ICCV_2017/papers/Tonioni_Unsupervised_Adaptation_for_ICCV_2017_paper.pdf) | 2.87 % | 2.61 % | 0.90 |
-| [Lar et al](https://papers.nips.cc/paper/6639-semi-supervised-learning-for-optical-flow-with-generative-adversarial-networks.pdf)| 3.91 % | 2.58% | 1.83 | 0.63px|
+
+We compared SMAR-Net with three self-supervised stereo matching methods. We used a test split of KITTI2015 to train networks in self-supervised manner and used training split with ground truth disparity to evaluate the performance of all the methods.
+
+|Method | >2px | >3px| >5px |Mean error|
+|---|---|---|---|---|
+| [Zhou et al](http://openaccess.thecvf.com/content_ICCV_2017/papers/Zhou_Unsupervised_Learning_of_ICCV_2017_paper.pdf) |4.85%|3.56%|2.43%|0.74px
+| [Tonioni et al](http://openaccess.thecvf.com/content_ICCV_2017/papers/Tonioni_Unsupervised_Adaptation_for_ICCV_2017_paper.pdf) | 4.01 % | 2.73 % | 2.05% | 0.67px
+| [Lai et al](https://papers.nips.cc/paper/6639-semi-supervised-learning-for-optical-flow-with-generative-adversarial-networks.pdf)| 3.91 % | 2.58% | 1.83% | 0.63px|
 |SMAR-Net|3.71%|2.42%|1.75%|0.61px|
 
 ### Visualized results on KITTI VO dataset
