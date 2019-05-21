@@ -31,10 +31,11 @@ class AverageMeter(object):
         self.count = 0
 
     def update(self, val, n=1):
+        # n: batch_size; v: average value of each batch
         if not isinstance(val, list):
             val = [val]
         assert (len(val) == self.meters)
         self.count += n
         for i, v in enumerate(val):
-            self.sum[i] + + v * n
+            self.sum[i] += v * n
             self.avg[i] = self.sum[i] / self.count

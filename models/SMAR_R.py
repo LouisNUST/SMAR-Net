@@ -59,11 +59,11 @@ def deconv3d(in_planes, out_planes, kernel_size=3, stride=1, padding=1, output_p
 
 def predict_disp(in_planes):
     return nn.Sequential(
-        nn.Conv3d(in_planes, out_planes=32, kernel_size=3, stride=1, padding=1, bias=True),
-        nn.BatchNorm3d(out_planes=32),
+        nn.Conv3d(in_planes, 32, kernel_size=3, stride=1, padding=1, bias=True),
+        nn.BatchNorm3d(32),
         nn.LeakyReLU(),
-        nn.Conv3d(in_planes, out_planes=16, kernel_size=3, stride=1, padding=1, bias=True),
-        nn.BatchNorm3d(out_planes=16),
+        nn.Conv3d(32, 16, kernel_size=3, stride=1, padding=1, bias=True),
+        nn.BatchNorm3d(16),
         nn.LeakyReLU(),
         nn.ConvTranspose3d(16, 1, kernel_size=3, stride=2, padding=1, output_padding=1)
     )
