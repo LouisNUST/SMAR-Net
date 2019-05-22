@@ -77,8 +77,8 @@ val_loader = DataLoader(val_set, batch_size=args.batch_size, shuffle=False, num_
 
 print("3. Creating Model")
 
-model_R = SMAR_R(disp_max=args.disp_max).to(device)
-model_D = SMAR_D().to(device)
+model_R = SMAR_R(disp_max=args.disp_max)
+model_D = SMAR_D()
 
 if args.pretrained is not None:
     weights = torch.load(args.pretrained)
@@ -86,6 +86,9 @@ if args.pretrained is not None:
     model_D_weight = weights['model_D_state_dict']
     model_R.load_state_dict(model_R_weight, strict=False)
     model_D.load_state_dict(model_D_weight, strict=False)
+
+model_R = model_R.to(device)
+model_D = model_D.to(device)
 
 print("4.Setting Optimization Solver")
 
@@ -103,7 +106,7 @@ valid_writer = SummaryWriter(args.save_path / 'valid')
 print("6. Create csvfile to save log information.")
 
 with open(args.save_path / args.log, 'w') as csvfile:
-    csv_writer = csv.writer(csvfile, delimeiter='\t')
+    csv_writer = csv.writer(csvfile, delimiter='\t')
     csv_writer.writerow(['train_loss', 'val_loss'])
 
 print("7. Start Training!")
@@ -217,9 +220,10 @@ def warp_image(disp, left_img, right_img):
     return img_warp_mask, img_mask
 
 
-def valid():
+def valid(model_R, val_loader):
     error_names = ['valid loss']
     errors = AverageMeter(i=len(error_names))
+    model_R.eval()
 
     with torch.no_grad():
         for i, (left_img, right_img) in enumerate(val_loader):

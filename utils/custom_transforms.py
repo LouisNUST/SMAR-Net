@@ -26,10 +26,9 @@ class RandomCrop(object):
 
         h = np.random.randint(0, in_h - self.height)
         w = np.random.randint(0, in_w - self.width)
-        right_img_crop = np.zeros((self.height, self.width + 128))
-        right_img_crop[:, max(0, w - 128) - (w - 128):, :] = right_img[h:h + self.height,
-                                                               max(0, w - 128):w + self.width, :]
-        left_img_crop = left_img[ h:h+self.height, w:w+self.width,:],
+        right_img_crop = np.zeros((self.height, self.width + 128,3))
+        right_img_crop[:, max(0, w - 128) - (w - 128):, :] = right_img[h:h + self.height, max(0, w - 128):w + self.width, :]
+        left_img_crop = left_img[h:h+self.height, w:w+self.width,:]
 
         return left_img_crop,right_img_crop
 

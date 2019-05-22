@@ -118,7 +118,7 @@ class SMAR_R(nn.Module):
             if isinstance(m,nn.Conv3d) or isinstance(m, nn.ConvTranspose3d):
                 nn.init.kaiming_normal_(m.weight.data, mode = 'fan_in')
                 if m.bias is not None:
-                    m.bias.data_zero_()
+                    m.bias.data.zero_()
 
     def forward(self, left_img, right_img):
         out = self.concat(left_img, right_img)
